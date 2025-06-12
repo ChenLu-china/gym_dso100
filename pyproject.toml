@@ -1,0 +1,72 @@
+[tool.poetry]
+name = "gym-dso100"
+version = "0.0.1"
+description = "A gym environment for double so-100"
+authors = [    
+    "luchen <chen-lu.chen@connect.polyu.hk>"
+]
+readme = "README.md"
+license = "Apache-2.0"
+keywords = ["robotics", "deep", "reinforcement", "learning", "so-100", "environment", "gym", "gymnasium", "mujoco"]
+classifiers=[
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.10",
+]
+packages = [{include = "gym_dso100"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mujoco = ">=2.3.7"
+gymnasium = ">=0.29.1"
+gymnasium-robotics = ">=1.2.4"
+pre-commit = {version = ">=3.7.0", optional = true}
+debugpy = {version = ">=1.8.1", optional = true}
+pytest = {version = ">=8.1.0", optional = true}
+pytest-cov = {version = ">=5.0.0", optional = true}
+
+
+[tool.poetry.extras]
+dev = ["pre-commit", "debugpy"]
+
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+exclude = [
+    "example.py",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "N", "B", "C4", "SIM"]
+ignore-init-module-imports = true
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
